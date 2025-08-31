@@ -1,16 +1,14 @@
 import { motion } from 'framer-motion'
 import { 
-  Play, 
+  Brain, 
   BookOpen, 
+  Play, 
   Users, 
-  Code, 
-  Zap, 
-  Star,
-  Brain,
+  Target, 
+  User,
   Trophy,
-  Rocket,
-  Target,
-  Sparkles
+  Star,
+  Code
 } from 'lucide-react';
 
 function App() {
@@ -64,58 +62,30 @@ function App() {
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 className="relative"
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-400 via-pink-500 to-cyan-400 rounded-3xl flex items-center justify-center shadow-2xl">
-                  <Brain className="w-9 h-9 text-white" />
-                </div>
-                <motion.div 
-                  animate={{ scale: [1, 1.2, 1] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                  className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center"
-                >
-                  <Zap className="w-3 h-3 text-white" />
-                </motion.div>
+                <Brain className="w-8 h-8 text-white animate-pulse" />
               </motion.div>
               <div>
-                <h1 className="text-3xl font-black bg-gradient-to-r from-purple-300 via-pink-300 to-cyan-300 bg-clip-text text-transparent">
+                <h1 className="text-3xl font-bold bg-gradient-to-r from-cyber-purple via-cyber-pink to-cyber-cyan bg-clip-text text-transparent font-cyber">
                   CodeMentor Academy
                 </h1>
-                <p className="text-purple-200 font-bold tracking-wide flex items-center">
-                  <Sparkles className="w-4 h-4 mr-2" />
-                  AI-Powered Learning Revolution
-                </p>
+                <p className="text-cyber-cyan font-medium">AI-Powered Learning Platform</p>
               </div>
             </div>
             <nav className="hidden lg:flex items-center space-x-10">
-              {['🎯 Courses', '🧠 AI Mentors', '👥 Community', '🏆 Challenges'].map((item, index) => (
-                <motion.a 
-                  key={index}
-                  href="#" 
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  className="text-purple-200 hover:text-white font-bold transition-all relative group"
-                >
-                  {item}
-                  <span className="absolute -bottom-2 left-0 w-0 h-1 bg-gradient-to-r from-purple-400 to-pink-400 transition-all group-hover:w-full rounded-full"></span>
-                </motion.a>
-              ))}
+              <a href="#" className="text-cyber-cyan hover:text-neon-green transition-colors font-medium hover:animate-pulse">Courses</a>
+              <a href="#" className="text-cyber-cyan hover:text-neon-green transition-colors font-medium hover:animate-pulse">Mentors</a>
+              <a href="#" className="text-cyber-cyan hover:text-neon-green transition-colors font-medium hover:animate-pulse">Community</a>
+              <a href="#" className="text-cyber-cyan hover:text-neon-green transition-colors font-medium hover:animate-pulse">Progress</a>
             </nav>
             <div className="flex items-center space-x-4">
               <motion.button 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 text-purple-200 border-2 border-purple-400/50 rounded-2xl hover:bg-purple-500/20 hover:border-purple-300 transition-all font-bold backdrop-blur-sm"
+                className="bg-gradient-to-r from-cyber-purple to-cyber-pink hover:from-dark-purple hover:to-hot-pink px-6 py-3 rounded-xl font-semibold text-white shadow-lg shadow-cyber-purple/25 transition-all duration-300 animate-cyber-glow"
               >
-                Sign In
+                Get Started
               </motion.button>
-              <motion.button 
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                animate={{ boxShadow: ['0 0 20px rgba(168, 85, 247, 0.4)', '0 0 40px rgba(168, 85, 247, 0.6)', '0 0 20px rgba(168, 85, 247, 0.4)'] }}
-                transition={{ duration: 2, repeat: Infinity }}
-                className="px-8 py-3 bg-gradient-to-r from-purple-500 via-pink-500 to-cyan-500 text-white rounded-2xl font-bold shadow-lg"
-              >
-                <Rocket className="w-5 h-5 inline mr-2" />
-                Start Learning
-              </motion.button>
+              <User className="w-10 h-10 text-cyber-cyan hover:text-neon-green cursor-pointer transition-colors animate-float" />
             </div>
           </div>
         </div>
@@ -154,7 +124,7 @@ function App() {
                 whileTap={{ scale: 0.95 }}
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="px-12 py-6 bg-gradient-to-r from-purple-500 via-pink-500 to-cyan-500 text-white rounded-3xl font-black text-2xl shadow-2xl"
+                className="px-12 py-6 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-3xl font-black text-2xl shadow-2xl"
               >
                 <Play className="w-8 h-8 inline mr-4" />
                 🎮 START CODING NOW
