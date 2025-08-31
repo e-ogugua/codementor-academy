@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { 
   Play, 
@@ -7,13 +6,14 @@ import {
   Code, 
   Zap, 
   Star,
-  ChevronRight,
   Brain,
-  Trophy
+  Trophy,
+  Rocket,
+  Target,
+  Sparkles
 } from 'lucide-react';
 
 function App() {
-  const [activeTab, setActiveTab] = useState('courses');
 
   const courses = [
     { id: 1, title: 'JavaScript Fundamentals', level: 'Beginner', students: 1250, rating: 4.8, progress: 0 },
@@ -22,361 +22,344 @@ function App() {
     { id: 4, title: 'Python for AI', level: 'Intermediate', students: 1100, rating: 4.8, progress: 0 }
   ];
 
-  const features = [
-    { icon: Brain, title: 'AI-Powered Learning', desc: 'Personalized learning paths with AI mentoring' },
-    { icon: Code, title: 'Interactive Coding', desc: 'Real-time code execution and feedback' },
-    { icon: Users, title: 'Community Support', desc: 'Connect with fellow developers worldwide' },
-    { icon: Trophy, title: 'Certifications', desc: 'Industry-recognized certificates' }
-  ];
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-cyan-50">
+    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 overflow-hidden">
+      {/* Animated Background Blobs */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <motion.div 
+          animate={{ 
+            x: [0, 100, 0],
+            y: [0, -100, 0],
+            scale: [1, 1.2, 1]
+          }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -top-40 -right-40 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30"
+        />
+        <motion.div 
+          animate={{ 
+            x: [0, -150, 0],
+            y: [0, 100, 0],
+            scale: [1, 0.8, 1]
+          }}
+          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -bottom-40 -left-40 w-96 h-96 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30"
+        />
+        <motion.div 
+          animate={{ 
+            x: [0, 80, 0],
+            y: [0, -80, 0],
+            scale: [1, 1.1, 1]
+          }}
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/2 left-1/2 w-80 h-80 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20"
+        />
+      </div>
+
       {/* Header */}
-      <header className="bg-white/95 backdrop-blur-xl border-b border-indigo-100 sticky top-0 z-50 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
-            <div className="flex items-center space-x-4">
-              <div className="relative">
-                <div className="w-12 h-12 bg-gradient-to-br from-indigo-600 via-purple-600 to-cyan-500 rounded-2xl flex items-center justify-center shadow-lg">
-                  <Brain className="w-7 h-7 text-white" />
+      <header className="relative z-50 bg-black/10 backdrop-blur-2xl border-b border-purple-500/20">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="flex items-center justify-between h-24">
+            <div className="flex items-center space-x-6">
+              <motion.div 
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                className="relative"
+              >
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-400 via-pink-500 to-cyan-400 rounded-3xl flex items-center justify-center shadow-2xl">
+                  <Brain className="w-9 h-9 text-white" />
                 </div>
-                <div className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
-                  <Zap className="w-2.5 h-2.5 text-white" />
-                </div>
-              </div>
+                <motion.div 
+                  animate={{ scale: [1, 1.2, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center"
+                >
+                  <Zap className="w-3 h-3 text-white" />
+                </motion.div>
+              </motion.div>
               <div>
-                <h1 className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                <h1 className="text-3xl font-black bg-gradient-to-r from-purple-300 via-pink-300 to-cyan-300 bg-clip-text text-transparent">
                   CodeMentor Academy
                 </h1>
-                <p className="text-sm text-gray-600 font-medium">AI-Powered Learning Platform</p>
+                <p className="text-purple-200 font-bold tracking-wide flex items-center">
+                  <Sparkles className="w-4 h-4 mr-2" />
+                  AI-Powered Learning Revolution
+                </p>
               </div>
             </div>
-            <nav className="hidden lg:flex items-center space-x-8">
-              <a href="#" className="text-gray-700 hover:text-indigo-600 font-semibold transition-colors relative group">
-                Courses
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-600 transition-all group-hover:w-full"></span>
-              </a>
-              <a href="#" className="text-gray-700 hover:text-indigo-600 font-semibold transition-colors relative group">
-                AI Mentors
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-600 transition-all group-hover:w-full"></span>
-              </a>
-              <a href="#" className="text-gray-700 hover:text-indigo-600 font-semibold transition-colors relative group">
-                Community
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-600 transition-all group-hover:w-full"></span>
-              </a>
-              <a href="#" className="text-gray-700 hover:text-indigo-600 font-semibold transition-colors relative group">
-                Pricing
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-600 transition-all group-hover:w-full"></span>
-              </a>
+            <nav className="hidden lg:flex items-center space-x-10">
+              {['🎯 Courses', '🧠 AI Mentors', '👥 Community', '🏆 Challenges'].map((item, index) => (
+                <motion.a 
+                  key={index}
+                  href="#" 
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  className="text-purple-200 hover:text-white font-bold transition-all relative group"
+                >
+                  {item}
+                  <span className="absolute -bottom-2 left-0 w-0 h-1 bg-gradient-to-r from-purple-400 to-pink-400 transition-all group-hover:w-full rounded-full"></span>
+                </motion.a>
+              ))}
             </nav>
             <div className="flex items-center space-x-4">
-              <button className="px-6 py-2.5 text-indigo-600 border-2 border-indigo-200 rounded-xl hover:bg-indigo-50 hover:border-indigo-300 transition-all font-semibold">
+              <motion.button 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-8 py-3 text-purple-200 border-2 border-purple-400/50 rounded-2xl hover:bg-purple-500/20 hover:border-purple-300 transition-all font-bold backdrop-blur-sm"
+              >
                 Sign In
-              </button>
-              <button className="px-6 py-2.5 bg-gradient-to-r from-indigo-600 via-purple-600 to-cyan-500 text-white rounded-xl hover:shadow-lg hover:scale-105 transition-all font-semibold shadow-md">
+              </motion.button>
+              <motion.button 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                animate={{ boxShadow: ['0 0 20px rgba(168, 85, 247, 0.4)', '0 0 40px rgba(168, 85, 247, 0.6)', '0 0 20px rgba(168, 85, 247, 0.4)'] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="px-8 py-3 bg-gradient-to-r from-purple-500 via-pink-500 to-cyan-500 text-white rounded-2xl font-bold shadow-lg"
+              >
+                <Rocket className="w-5 h-5 inline mr-2" />
                 Start Learning
-              </button>
+              </motion.button>
             </div>
           </div>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-indigo-400 to-purple-400 rounded-full opacity-10 blur-3xl"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full opacity-10 blur-3xl"></div>
-        </div>
-        
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Left Content */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-left"
+      <section className="relative py-32 px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto relative z-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+          >
+            <motion.h2 
+              className="text-8xl font-black mb-12 leading-tight"
+              animate={{ 
+                backgroundPosition: ['0% 50%', '100% 50%', '0% 50%']
+              }}
+              transition={{ duration: 5, repeat: Infinity }}
+              style={{
+                backgroundImage: 'linear-gradient(45deg, #a855f7, #ec4899, #06b6d4, #a855f7)',
+                backgroundSize: '300% 300%',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent'
+              }}
             >
-              <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-indigo-100 to-purple-100 border border-indigo-200 rounded-full text-indigo-700 text-sm font-semibold mb-8">
-                <Brain className="w-4 h-4 mr-2" />
-                AI-Powered Learning Revolution
-              </div>
-              <h1 className="text-5xl md:text-7xl font-black text-gray-900 mb-8 leading-tight">
-                Master Coding with
-                <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-cyan-500 bg-clip-text text-transparent block mt-2">
-                  AI Mentorship
-                </span>
-              </h1>
-              <p className="text-xl text-gray-700 mb-10 leading-relaxed font-medium">
-                Transform your programming journey with personalized AI mentoring, real-time code feedback, 
-                and interactive challenges. Join thousands of developers building their dream careers.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-6 mb-12">
-                <button className="group px-8 py-4 bg-gradient-to-r from-indigo-600 via-purple-600 to-cyan-500 text-white rounded-2xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 shadow-xl">
-                  <span className="flex items-center justify-center">
-                    Start Learning Free
-                    <ChevronRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </span>
-                </button>
-                <button className="px-8 py-4 border-2 border-indigo-300 text-indigo-700 rounded-2xl font-bold text-lg hover:bg-indigo-50 hover:border-indigo-400 transition-all flex items-center justify-center">
-                  <Play className="w-5 h-5 mr-2" />
-                  Watch Demo
-                </button>
-              </div>
-
-              {/* Stats */}
-              <div className="grid grid-cols-3 gap-8">
-                <div className="text-center">
-                  <div className="text-3xl font-black text-indigo-600">50K+</div>
-                  <div className="text-gray-600 font-semibold">Students</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-black text-purple-600">95%</div>
-                  <div className="text-gray-600 font-semibold">Success Rate</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-black text-cyan-600">24/7</div>
-                  <div className="text-gray-600 font-semibold">AI Support</div>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Right Visual - Interactive Learning Dashboard */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative"
-            >
-              {/* Main Dashboard */}
-              <div className="relative bg-white rounded-3xl shadow-2xl p-8 border border-gray-100">
-                {/* Header */}
-                <div className="flex items-center justify-between mb-6">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg"></div>
-                    <div>
-                      <div className="text-sm font-bold text-gray-900">Learning Dashboard</div>
-                      <div className="text-xs text-gray-500">JavaScript Mastery</div>
-                    </div>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                    <span className="text-xs text-gray-500 font-medium">AI Mentor Online</span>
-                  </div>
-                </div>
-
-                {/* Progress Section */}
-                <div className="mb-6">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm font-semibold text-gray-700">Course Progress</span>
-                    <span className="text-sm font-bold text-indigo-600">78%</span>
-                  </div>
-                  <div className="w-full bg-gray-200 rounded-full h-3">
-                    <div className="bg-gradient-to-r from-indigo-500 to-purple-500 h-3 rounded-full w-3/4"></div>
-                  </div>
-                </div>
-
-                {/* Code Editor Mockup */}
-                <div className="bg-gray-900 rounded-xl p-4 mb-6">
-                  <div className="flex items-center space-x-2 mb-3">
-                    <div className="w-3 h-3 bg-red-400 rounded-full"></div>
-                    <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
-                    <div className="w-3 h-3 bg-green-400 rounded-full"></div>
-                  </div>
-                  <div className="space-y-2 text-sm">
-                    <div className="text-purple-400">function <span className="text-blue-400">calculateSum</span>() {'{'}</div>
-                    <div className="text-gray-300 ml-4">return <span className="text-green-400">a + b</span>;</div>
-                    <div className="text-purple-400">{'}'}</div>
-                  </div>
-                </div>
-
-                {/* AI Feedback */}
-                <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl p-4 border border-indigo-100">
-                  <div className="flex items-center space-x-2 mb-2">
-                    <Brain className="w-4 h-4 text-indigo-600" />
-                    <span className="text-sm font-semibold text-indigo-700">AI Mentor Feedback</span>
-                  </div>
-                  <p className="text-sm text-gray-700">Great work! Consider adding parameter validation for better code quality.</p>
-                </div>
-              </div>
-
-              {/* Floating Elements */}
-              <motion.div
-                animate={{ y: [-10, 10, -10] }}
-                transition={{ duration: 4, repeat: Infinity }}
-                className="absolute -top-6 -right-6 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-2xl p-4 shadow-xl"
+              🚀 FUTURE OF<br />
+              CODING EDUCATION
+            </motion.h2>
+            <p className="text-2xl text-purple-200 mb-16 leading-relaxed max-w-4xl mx-auto font-semibold">
+              🤖 Revolutionary AI mentors • 🎯 Personalized learning paths • 🏆 Real-world projects • 👥 Global developer community
+            </p>
+            <div className="flex flex-col sm:flex-row gap-8 justify-center">
+              <motion.button 
+                whileHover={{ scale: 1.1, rotate: 2 }}
+                whileTap={{ scale: 0.95 }}
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                className="px-12 py-6 bg-gradient-to-r from-purple-500 via-pink-500 to-cyan-500 text-white rounded-3xl font-black text-2xl shadow-2xl"
               >
-                <Trophy className="w-6 h-6 text-white" />
-              </motion.div>
-              
-              <motion.div
-                animate={{ y: [10, -10, 10] }}
-                transition={{ duration: 3, repeat: Infinity }}
-                className="absolute -bottom-6 -left-6 bg-gradient-to-r from-green-400 to-emerald-500 rounded-2xl p-4 shadow-xl"
+                <Play className="w-8 h-8 inline mr-4" />
+                🎮 START CODING NOW
+              </motion.button>
+              <motion.button 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-12 py-6 text-purple-200 border-4 border-purple-400/50 rounded-3xl hover:bg-purple-500/20 hover:border-purple-300 transition-all font-black text-2xl backdrop-blur-sm"
               >
-                <Code className="w-6 h-6 text-white" />
-              </motion.div>
-            </motion.div>
-          </div>
+                <BookOpen className="w-8 h-8 inline mr-4" />
+                📚 EXPLORE COURSES
+              </motion.button>
+            </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Features */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
+      {/* AI Dashboard Mockup */}
+      <section className="relative py-24 px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.5 }}
+            className="bg-black/30 backdrop-blur-2xl rounded-3xl p-12 border border-purple-500/30 shadow-2xl"
+          >
+            <div className="text-center mb-12">
+              <h3 className="text-4xl font-black text-white mb-4 flex items-center justify-center">
+                <Brain className="w-10 h-10 mr-4 text-purple-400" />
+                🧠 AI LEARNING DASHBOARD
+              </h3>
+              <p className="text-purple-200 text-xl">Experience the future of personalized coding education</p>
+            </div>
+            
+            {/* Mock Dashboard */}
+            <div className="grid md:grid-cols-3 gap-8">
+              {/* AI Mentor */}
+              <motion.div 
+                whileHover={{ scale: 1.05, y: -5 }}
+                className="bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-2xl p-8 border border-purple-400/30 backdrop-blur-sm"
+              >
+                <div className="text-center">
+                  <motion.div 
+                    animate={{ rotate: [0, 10, -10, 0] }}
+                    transition={{ duration: 4, repeat: Infinity }}
+                    className="w-20 h-20 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-6"
+                  >
+                    <Brain className="w-10 h-10 text-white" />
+                  </motion.div>
+                  <h4 className="text-2xl font-bold text-white mb-4">🤖 AI Mentor: Alex</h4>
+                  <p className="text-purple-200 mb-6">"Ready to tackle React hooks? Let's build something amazing together!"</p>
+                  <motion.button 
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-xl font-bold"
+                  >
+                    💬 Chat Now
+                  </motion.button>
+                </div>
+              </motion.div>
+
+              {/* Progress */}
+              <motion.div 
+                whileHover={{ scale: 1.05, y: -5 }}
+                className="bg-gradient-to-br from-cyan-600/20 to-blue-600/20 rounded-2xl p-8 border border-cyan-400/30 backdrop-blur-sm"
+              >
+                <h4 className="text-2xl font-bold text-white mb-6 flex items-center">
+                  <Target className="w-6 h-6 mr-2 text-cyan-400" />
+                  📊 Your Progress
+                </h4>
+                <div className="space-y-4">
+                  <div>
+                    <div className="flex justify-between text-cyan-200 mb-2">
+                      <span>JavaScript Mastery</span>
+                      <span>87%</span>
+                    </div>
+                    <div className="w-full bg-gray-700 rounded-full h-3 overflow-hidden">
+                      <motion.div 
+                        initial={{ width: 0 }}
+                        animate={{ width: '87%' }}
+                        transition={{ duration: 2, delay: 1 }}
+                        className="bg-gradient-to-r from-cyan-400 to-blue-500 h-3 rounded-full"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <div className="flex justify-between text-cyan-200 mb-2">
+                      <span>React Development</span>
+                      <span>64%</span>
+                    </div>
+                    <div className="w-full bg-gray-700 rounded-full h-3 overflow-hidden">
+                      <motion.div 
+                        initial={{ width: 0 }}
+                        animate={{ width: '64%' }}
+                        transition={{ duration: 2, delay: 1.5 }}
+                        className="bg-gradient-to-r from-cyan-400 to-blue-500 h-3 rounded-full"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Achievements */}
+              <motion.div 
+                whileHover={{ scale: 1.05, y: -5 }}
+                className="bg-gradient-to-br from-yellow-600/20 to-orange-600/20 rounded-2xl p-8 border border-yellow-400/30 backdrop-blur-sm"
+              >
+                <h4 className="text-2xl font-bold text-white mb-6 flex items-center">
+                  <Trophy className="w-6 h-6 mr-2 text-yellow-400" />
+                  🏆 Achievements
+                </h4>
+                <div className="space-y-4">
+                  <motion.div 
+                    whileHover={{ x: 5 }}
+                    className="flex items-center space-x-3"
+                  >
+                    <Trophy className="w-8 h-8 text-yellow-400" />
+                    <div>
+                      <p className="text-white font-bold">Code Ninja</p>
+                      <p className="text-yellow-200 text-sm">100 challenges completed</p>
+                    </div>
+                  </motion.div>
+                  <motion.div 
+                    whileHover={{ x: 5 }}
+                    className="flex items-center space-x-3"
+                  >
+                    <Star className="w-8 h-8 text-yellow-400" />
+                    <div>
+                      <p className="text-white font-bold">React Master</p>
+                      <p className="text-yellow-200 text-sm">Built 5 projects</p>
+                    </div>
+                  </motion.div>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Courses Preview */}
+      <section className="relative py-24 px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <h3 className="text-3xl font-bold text-white text-center mb-12">Why Choose CodeMentor Academy?</h3>
+          <div className="text-center mb-16">
+            <h3 className="text-5xl font-black text-white mb-6">🎯 TRENDING COURSES</h3>
+            <p className="text-xl text-purple-200">Master the skills that matter in 2024</p>
+          </div>
+          
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {features.map((feature, index) => (
+            {courses.map((course, index) => (
               <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
+                key={course.id}
+                initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 hover:border-blue-500/50 transition-all"
+                whileHover={{ scale: 1.05, y: -10 }}
+                className="bg-black/20 backdrop-blur-xl rounded-2xl p-6 border border-purple-500/20 hover:border-purple-400/40 transition-all"
               >
-                <feature.icon className="w-12 h-12 text-blue-400 mb-4" />
-                <h4 className="text-xl font-semibold text-white mb-2">{feature.title}</h4>
-                <p className="text-slate-300">{feature.desc}</p>
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <Code className="w-8 h-8 text-white" />
+                  </div>
+                  <h4 className="text-xl font-bold text-white mb-2">{course.title}</h4>
+                  <p className="text-purple-200 text-sm mb-4">{course.level}</p>
+                  <div className="flex items-center justify-between text-sm text-purple-300 mb-4">
+                    <span className="flex items-center">
+                      <Users className="w-4 h-4 mr-1" />
+                      {course.students}
+                    </span>
+                    <span className="flex items-center">
+                      <Star className="w-4 h-4 mr-1 text-yellow-400" />
+                      {course.rating}
+                    </span>
+                  </div>
+                  <motion.button 
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="w-full px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-xl font-bold hover:shadow-lg transition-all"
+                  >
+                    Start Course
+                  </motion.button>
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Course Tabs */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex justify-center mb-8">
-            <div className="bg-slate-800/50 rounded-lg p-1 backdrop-blur-sm border border-slate-700/50">
-              {['courses', 'mentoring', 'community'].map((tab) => (
-                <button
-                  key={tab}
-                  onClick={() => setActiveTab(tab)}
-                  className={`px-6 py-3 rounded-md text-sm font-medium transition-all capitalize ${
-                    activeTab === tab
-                      ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white'
-                      : 'text-slate-300 hover:text-white'
-                  }`}
-                >
-                  {tab}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {activeTab === 'courses' && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
-            >
-              {courses.map((course) => (
-                <div key={course.id} className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 hover:border-blue-500/50 transition-all group">
-                  <div className="flex justify-between items-start mb-4">
-                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                      course.level === 'Beginner' ? 'bg-green-500/20 text-green-400' :
-                      course.level === 'Intermediate' ? 'bg-yellow-500/20 text-yellow-400' :
-                      'bg-red-500/20 text-red-400'
-                    }`}>
-                      {course.level}
-                    </span>
-                    <div className="flex items-center text-yellow-400">
-                      <Star className="w-4 h-4 fill-current" />
-                      <span className="text-sm ml-1">{course.rating}</span>
-                    </div>
-                  </div>
-                  <h4 className="text-xl font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors">
-                    {course.title}
-                  </h4>
-                  <p className="text-slate-300 text-sm mb-4">{course.students.toLocaleString()} students</p>
-                  <button className="w-full px-4 py-2 bg-slate-700 text-white rounded-lg hover:bg-slate-600 transition-colors flex items-center justify-center">
-                    Start Course
-                    <ChevronRight className="w-4 h-4 ml-2" />
-                  </button>
-                </div>
-              ))}
-            </motion.div>
-          )}
-
-          {activeTab === 'mentoring' && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="text-center py-12"
-            >
-              <Zap className="w-16 h-16 text-blue-400 mx-auto mb-6" />
-              <h3 className="text-2xl font-bold text-white mb-4">AI-Powered Mentoring</h3>
-              <p className="text-slate-300 max-w-2xl mx-auto mb-8">
-                Get personalized guidance from our AI mentor that adapts to your learning style and provides 
-                real-time feedback on your code and progress.
-              </p>
-              <button className="px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg font-semibold hover:from-blue-600 hover:to-purple-700 transition-all">
-                Try AI Mentor
-              </button>
-            </motion.div>
-          )}
-
-          {activeTab === 'community' && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="text-center py-12"
-            >
-              <Users className="w-16 h-16 text-blue-400 mx-auto mb-6" />
-              <h3 className="text-2xl font-bold text-white mb-4">Global Developer Community</h3>
-              <p className="text-slate-300 max-w-2xl mx-auto mb-8">
-                Connect with developers worldwide, share projects, get help, and collaborate on exciting challenges.
-                Build your network while you build your skills.
-              </p>
-              <button className="px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg font-semibold hover:from-blue-600 hover:to-purple-700 transition-all">
-                Join Community
-              </button>
-            </motion.div>
-          )}
-        </div>
-      </section>
-
-      {/* Stats */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-slate-800/30">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-4xl font-bold text-blue-400 mb-2">50K+</div>
-              <div className="text-slate-300">Active Learners</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-purple-400 mb-2">200+</div>
-              <div className="text-slate-300">Courses</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-green-400 mb-2">95%</div>
-              <div className="text-slate-300">Success Rate</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-yellow-400 mb-2">24/7</div>
-              <div className="text-slate-300">AI Support</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Footer */}
-      <footer className="bg-slate-900 border-t border-slate-700/50 py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center">
-          <div className="flex items-center justify-center space-x-3 mb-6">
-            <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-              <BookOpen className="w-5 h-5 text-white" />
+      <footer className="relative bg-black/20 backdrop-blur-xl border-t border-purple-500/20 py-12">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center">
+            <div className="flex items-center justify-center space-x-4 mb-6">
+              <div className="w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-500 rounded-2xl flex items-center justify-center">
+                <Brain className="w-7 h-7 text-white" />
+              </div>
+              <span className="text-2xl font-black bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent">
+                CodeMentor Academy
+              </span>
             </div>
-            <span className="text-xl font-bold text-white">CodeMentor Academy</span>
-          </div>
-          <p className="text-slate-400 mb-6">Empowering the next generation of developers with AI-powered education</p>
-          <div className="flex justify-center space-x-6 text-slate-400">
-            <a href="#" className="hover:text-white transition-colors">Privacy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms</a>
-            <a href="#" className="hover:text-white transition-colors">Support</a>
-            <a href="#" className="hover:text-white transition-colors">Contact</a>
+            <p className="text-purple-200 mb-4">
+              🚀 Revolutionizing coding education with AI-powered mentorship
+            </p>
+            <p className="text-purple-300 text-sm">
+              © 2024 CodeMentor Academy. Empowering the next generation of developers.
+            </p>
           </div>
         </div>
       </footer>
