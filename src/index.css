@@ -1,6 +1,22 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme inline {
+  --color-cyber-purple: #8B5CF6;
+  --color-cyber-pink: #EC4899;
+  --color-cyber-cyan: #06B6D4;
+  --color-cyber-blue: #3B82F6;
+  --color-neon-green: #10B981;
+  --color-neon-yellow: #EAB308;
+  --color-dark-purple: #581C87;
+  --color-electric-blue: #1E40AF;
+  --color-matrix-green: #22C55E;
+  --color-hot-pink: #F472B6;
+  
+  --font-family-cyber: 'Orbitron', monospace;
+  
+  --animate-cyber-glow: cyber-glow 3s ease-in-out infinite alternate;
+  --animate-float: float 6s ease-in-out infinite;
+}
 
 @keyframes cyber-glow {
   0% { box-shadow: 0 0 5px #EC4899, 0 0 10px #EC4899; }
@@ -10,21 +26,4 @@
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-20px); }
-}
-
-@keyframes pulse-slow {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
-}
-
-.animate-cyber-glow {
-  animation: cyber-glow 3s ease-in-out infinite alternate;
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-.animate-pulse-slow {
-  animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
