@@ -1,3 +1,4 @@
+// Updated for redeploy trigger - Oct 15, 2025
 import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
