@@ -106,7 +106,7 @@ export function TopicFilters({
             ].map((option) => (
               <button
                 key={option.key}
-                onClick={() => onSortChange(option.key as any)}
+                onClick={() => onSortChange(option.key as 'relevance' | 'duration' | 'difficulty')}
                 className={`px-3 py-1 rounded-lg text-sm font-medium transition-all ${
                   sortBy === option.key
                     ? 'bg-neon-green text-black'

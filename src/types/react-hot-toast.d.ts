@@ -1,9 +1,9 @@
 declare module 'react-hot-toast' {
   import { ReactNode } from 'react';
-  
+
   type ToastType = 'success' | 'error' | 'loading' | 'blank' | 'custom';
   type ToastPosition = 'top-left' | 'top-center' | 'top-right' | 'bottom-left' | 'bottom-center' | 'bottom-right';
-  
+
   interface ToastOptions {
     duration?: number;
     position?: ToastPosition;
@@ -15,7 +15,7 @@ declare module 'react-hot-toast' {
       'aria-live': 'polite' | 'assertive' | 'off';
     };
   }
-  
+
   interface Toast extends ToastOptions {
     id: string;
     type: ToastType;
@@ -27,7 +27,7 @@ declare module 'react-hot-toast' {
     visible: boolean;
     height?: number;
   }
-  
+
   interface ToasterProps {
     position?: ToastPosition;
     toastOptions?: ToastOptions;
@@ -36,26 +36,30 @@ declare module 'react-hot-toast' {
     containerStyle?: React.CSSProperties;
     containerClassName?: string;
   }
-  
+
   export const Toaster: React.FC<ToasterProps>;
-  
-  export function toast(message: ReactNode, opts?: ToastOptions): string;
-  export function toast.success(message: ReactNode, opts?: ToastOptions): string;
-  export function toast.error(message: ReactNode, opts?: ToastOptions): string;
-  export function toast.loading(message: ReactNode, opts?: ToastOptions): string;
-  export function toast.custom(message: ReactNode, opts?: ToastOptions): string;
-  export function toast.dismiss(toastId?: string): void;
-  export function toast.remove(toastId?: string): void;
-  export function toast.promise<T>(
-    promise: Promise<T>,
-    msgs: {
-      loading: ReactNode;
-      success: ReactNode | ((data: T) => ReactNode);
-      error: ReactNode | ((error: any) => ReactNode);
-    },
-    opts?: ToastOptions
-  ): Promise<T>;
-  
+
+  declare const toast: {
+    (message: ReactNode, opts?: ToastOptions): string;
+    success: (message: ReactNode, opts?: ToastOptions) => string;
+    error: (message: ReactNode, opts?: ToastOptions) => string;
+    loading: (message: ReactNode, opts?: ToastOptions) => string;
+    custom: (message: ReactNode, opts?: ToastOptions) => string;
+    dismiss: (toastId?: string) => void;
+    remove: (toastId?: string) => void;
+    promise: <T>(
+      promise: Promise<T>,
+      msgs: {
+        loading: ReactNode;
+        success: ReactNode | ((data: T) => ReactNode);
+        error: ReactNode | ((error: Error) => ReactNode);
+      },
+      opts?: ToastOptions
+    ) => Promise<T>;
+  };
+
+  export { toast };
+
   export function useToaster(): {
     toasts: Toast[];
     handlers: {

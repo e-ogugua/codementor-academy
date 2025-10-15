@@ -2,8 +2,8 @@ import { topics, type Topic } from '../data/topics';
 
 // Admin API endpoints for topic management
 export class AdminAPI {
-  private static validateTopic(data: any): Topic | null {
-    const required = ['id', 'title', 'slug', 'description', 'tags', 'difficulty', 'duration_estimate'];
+  private static validateTopic(data: Record<string, unknown>): Topic | null {
+    const required: (keyof Topic)[] = ['id', 'title', 'slug', 'description', 'tags', 'difficulty', 'duration_estimate'];
     
     for (const field of required) {
       if (!data[field]) {
@@ -13,42 +13,45 @@ export class AdminAPI {
     }
 
     // Validate difficulty
-    if (!['Beginner', 'Intermediate', 'Advanced'].includes(data.difficulty)) {
-      console.error(`Invalid difficulty: ${data.difficulty}`);
+    const difficulty = data.difficulty as string;
+    if (!['Beginner', 'Intermediate', 'Advanced'].includes(difficulty)) {
+      console.error(`Invalid difficulty: ${difficulty}`);
       return null;
     }
 
     // Validate duration_estimate is a number
-    if (typeof data.duration_estimate !== 'number' || data.duration_estimate <= 0) {
-      console.error(`Invalid duration_estimate: ${data.duration_estimate}`);
+    const duration = data.duration_estimate as number;
+    if (typeof duration !== 'number' || duration <= 0) {
+      console.error(`Invalid duration_estimate: ${duration}`);
       return null;
     }
 
     // Ensure tags is an array
-    if (!Array.isArray(data.tags)) {
-      console.error(`Tags must be an array: ${data.tags}`);
+    const tags = data.tags as string[];
+    if (!Array.isArray(tags)) {
+      console.error(`Tags must be an array: ${tags}`);
       return null;
     }
 
     return {
-      id: data.id,
-      title: data.title,
-      slug: data.slug,
-      description: data.description,
-      tags: data.tags,
-      difficulty: data.difficulty,
-      duration_estimate: data.duration_estimate,
+      id: data.id as string,
+      title: data.title as string,
+      slug: data.slug as string,
+      description: data.description as string,
+      tags: tags,
+      difficulty: difficulty as 'Beginner' | 'Intermediate' | 'Advanced',
+      duration_estimate: duration,
       is_featured: Boolean(data.is_featured),
-      learning_outcomes: data.learning_outcomes || [],
-      prerequisites: data.prerequisites || [],
-      related_portfolio_slug: data.related_portfolio_slug || [],
-      author_id: data.author_id || 'emmanuel-ogugua',
-      created_at: data.created_at || new Date().toISOString(),
+      learning_outcomes: (data.learning_outcomes as string[]) || [],
+      prerequisites: (data.prerequisites as string[]) || [],
+      related_portfolio_slug: (data.related_portfolio_slug as string) || undefined,
+      author_id: (data.author_id as string) || 'emmanuel-ogugua',
+      created_at: (data.created_at as string) || new Date().toISOString(),
       updated_at: new Date().toISOString()
     };
   }
 
-  static async importFromJSON(jsonData: any[]): Promise<{ success: number; errors: string[] }> {
+  static async importFromJSON(jsonData: Record<string, unknown>[]): Promise<{ success: number; errors: string[] }> {
     const results = { success: 0, errors: [] as string[] };
     
     for (let i = 0; i < jsonData.length; i++) {
@@ -84,10 +87,10 @@ export class AdminAPI {
     for (let i = 1; i < lines.length; i++) {
       try {
         const values = lines[i].split(',').map(v => v.trim().replace(/"/g, ''));
-        const rowData: any = {};
+        const rowData: Record<string, unknown> = {};
         
         headers.forEach((header, index) => {
-          let value: any = values[index] || '';
+          let value: string | string[] | number | boolean = values[index] || '';
           
           // Parse special fields
           if (header === 'tags' || header === 'learning_outcomes' || header === 'prerequisites' || header === 'related_portfolio_slug') {
@@ -137,7 +140,7 @@ export class AdminAPI {
     
     topics.forEach(topic => {
       const row = headers.map(header => {
-        let value: any = topic[header as keyof Topic];
+        let value: string | string[] | number | boolean | undefined = topic[header as keyof Topic];
         
         // Handle arrays by joining with semicolons
         if (Array.isArray(value)) {
