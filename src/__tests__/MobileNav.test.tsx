@@ -2,6 +2,7 @@ import React from 'react';
 import { act } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom/vitest';
 import { BrowserRouter } from 'react-router-dom';
 import { MobileNav } from '../components/MobileNav';
@@ -283,7 +284,7 @@ describe('MobileNav', () => {
       });
 
       const premiumButton = screen.getByRole('button', { name: /premium/i });
-      await act(async () => {
+      act(() => {
         fireEvent.click(premiumButton);
       });
 
