@@ -1,13 +1,51 @@
 {
   "name": "codementor-academy",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Interactive coding education platform with structured learning paths and progress tracking",
   "type": "module",
+  "author": "CEO – Chukwuka Emmanuel Ogugua",
+  "organization": "EmmanuelOS",
+  "license": "Private",
+  "keywords": [
+    "education",
+    "coding",
+    "learning",
+    "react",
+    "typescript",
+    "web-development",
+    "interactive-tutorials",
+    "progress-tracking"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emmanuelos/codementor-academy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/emmanuelos/codementor-academy/issues"
+  },
+  "homepage": "https://github.com/emmanuelos/codementor-academy#readme",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "preview": "vite preview",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "type-check": "tsc --noEmit",
+    "audit": "npm audit && npm audit fix",
+    "clean": "rm -rf dist node_modules/.vite",
+    "analyze": "vite build --mode analyze",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test:ui": "vitest --ui",
+    "test:watch": "vitest --watch",
+    "audit:lighthouse": "lighthouse http://localhost:5173 --output=json --quiet --chrome-flags='--headless'",
+    "audit:accessibility": "pa11y http://localhost:5173",
+    "pre-commit": "npm run lint && npm run type-check && npm run format:check && npm run test:run",
+    "postinstall": "npm run audit"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.1.12",
@@ -21,18 +59,38 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",
     "@vitejs/plugin-react": "^5.0.0",
     "autoprefixer": "^10.4.21",
+    "axe-core": "^4.11.0",
     "eslint": "^9.33.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.3.0",
+    "jest-axe": "^10.0.0",
+    "jsdom": "^27.0.1",
+    "pa11y": "^9.0.1",
     "postcss": "^8.5.6",
+    "prettier": "^3.4.2",
     "tailwindcss": "^4.1.12",
+    "terser": "^5.44.0",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.39.1",
-    "vite": "^7.1.2"
-  }
+    "vite": "^7.1.2",
+    "vite-bundle-analyzer": "^0.11.0",
+    "vitest": "^3.2.4"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "not dead",
+    "not < 2%"
+  ]
 }

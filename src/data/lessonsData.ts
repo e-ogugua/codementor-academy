@@ -23,13 +23,19 @@ export const lessonsData: Lesson[] = [
       'Understand HTML structure',
       'Create semantic markup',
       'Add images and links',
-      'Build a simple webpage'
+      'Build a simple webpage',
     ],
-    explanation: 'HTML is the backbone of every web page. Learn the essential tags and structure to create your first webpage from scratch!',
-    codeSnippet: '<!DOCTYPE html><html><head><title>My Page</title></head><body><h1>Hello World</h1></body></html>',
-    tryItCode: 'Try creating your own HTML structure!',
+    explanation:
+      'HTML is the backbone of every web page. Learn the essential tags and structure to create your first webpage from scratch.',
+    codeSnippet:
+      '<!DOCTYPE html><html><head><title>My Page</title></head><body><h1>Hello World</h1></body></html>',
+    tryItCode: 'Try creating your own HTML structure.',
     isPremium: false,
-    challenges: ['Create a webpage with your name and a photo.', 'Add 3 different HTML elements.', 'Make a list of your favorite hobbies.']
+    challenges: [
+      'Create a webpage with your name and a photo.',
+      'Add 3 different HTML elements.',
+      'Make a list of your favorite hobbies.',
+    ],
   },
   {
     id: 'css-fundamentals',
@@ -41,13 +47,18 @@ export const lessonsData: Lesson[] = [
       'Apply CSS selectors',
       'Use colors and fonts',
       'Create layouts with flexbox',
-      'Style a complete webpage'
+      'Style a complete webpage',
     ],
-    explanation: 'CSS brings life to your HTML! Learn how to style elements, create beautiful layouts, and make your webpages visually appealing.',
+    explanation:
+      'CSS brings life to your HTML. Learn how to style elements, create beautiful layouts, and make your webpages visually appealing.',
     codeSnippet: 'body { background: blue; } h1 { color: white; }',
-    tryItCode: 'Style the HTML from the previous lesson!',
+    tryItCode: 'Style the HTML from the previous lesson.',
     isPremium: false,
-    challenges: ['Style a navigation menu.', 'Create a responsive layout.', 'Add hover effects to buttons.']
+    challenges: [
+      'Style a navigation menu.',
+      'Create a responsive layout.',
+      'Add hover effects to buttons.',
+    ],
   },
   {
     id: 'js-variables',
@@ -59,13 +70,18 @@ export const lessonsData: Lesson[] = [
       'Declare variables with var, let, const',
       'Understand data types',
       'Use operators and expressions',
-      'Debug basic JavaScript code'
+      'Debug basic JavaScript code',
     ],
-    explanation: 'Variables are the foundation of JavaScript programming. Learn how to store and manipulate data in your scripts.',
+    explanation:
+      'Variables are the foundation of JavaScript programming. Learn how to store and manipulate data in your scripts.',
     codeSnippet: 'let name = "Emmanuel"; const age = 25; console.log(name);',
-    tryItCode: 'Declare your own variables and log them!',
+    tryItCode: 'Declare your own variables and log them.',
     isPremium: false,
-    challenges: ['Calculate the area of a rectangle.', 'Convert temperature from C to F.', 'Create an array of your favorite foods.']
+    challenges: [
+      'Calculate the area of a rectangle.',
+      'Convert temperature from C to F.',
+      'Create an array of your favorite foods.',
+    ],
   },
   {
     id: 'js-functions',
@@ -77,13 +93,18 @@ export const lessonsData: Lesson[] = [
       'Define and call functions',
       'Use parameters and return values',
       'Understand scope and closures',
-      'Create modular code'
+      'Create modular code',
     ],
-    explanation: 'Functions allow you to write reusable code. Learn how to organize your JavaScript into manageable, callable blocks.',
+    explanation:
+      'Functions allow you to write reusable code. Learn how to organize your JavaScript into manageable, callable blocks.',
     codeSnippet: 'function greet(name) { return "Hello " + name; }',
-    tryItCode: 'Create your own functions!',
+    tryItCode: 'Create your own functions.',
     isPremium: false,
-    challenges: ['Build a tip calculator function.', 'Create a function that returns user info.', 'Make a function that generates random numbers.']
+    challenges: [
+      'Build a tip calculator function.',
+      'Create a function that returns user info.',
+      'Make a function that generates random numbers.',
+    ],
   },
   {
     id: 'react-components',
@@ -95,13 +116,18 @@ export const lessonsData: Lesson[] = [
       'Create functional components',
       'Use JSX syntax',
       'Pass props to components',
-      'Compose components together'
+      'Compose components together',
     ],
-    explanation: 'React components are the building blocks of modern web apps. Learn how to create reusable UI elements with React.',
+    explanation:
+      'React components are the building blocks of modern web apps. Learn how to create reusable UI elements with React.',
     codeSnippet: 'function Welcome(props) { return <h1>Hello {props.name}</h1>; }',
-    tryItCode: 'Build a component that displays user info!',
+    tryItCode: 'Build a component that displays user info.',
     isPremium: false,
-    challenges: ['Create a card component for products.', 'Build a todo item component.', 'Make a reusable button component.']
+    challenges: [
+      'Create a card component for products.',
+      'Build a todo item component.',
+      'Make a reusable button component.',
+    ],
   },
   {
     id: 'react-state',
@@ -113,13 +139,18 @@ export const lessonsData: Lesson[] = [
       'Use useState hook',
       'Update state in event handlers',
       'Understand state vs props',
-      'Build interactive components'
+      'Build interactive components',
     ],
-    explanation: 'State allows React components to be dynamic. Learn how to manage component state with the useState hook.',
+    explanation:
+      'State allows React components to be dynamic. Learn how to manage component state with the useState hook.',
     codeSnippet: 'const [count, setCount] = useState(0);',
-    tryItCode: 'Create a stateful component!',
+    tryItCode: 'Create a stateful component.',
     isPremium: false,
-    challenges: ['Build a simple todo app with state.', 'Create a color picker with state.', 'Make a temperature converter.']
+    challenges: [
+      'Build a simple todo app with state.',
+      'Create a color picker with state.',
+      'Make a temperature converter.',
+    ],
   },
   {
     id: 'node-express',
@@ -131,13 +162,18 @@ export const lessonsData: Lesson[] = [
       'Set up an Express server',
       'Handle HTTP requests',
       'Create RESTful endpoints',
-      'Use middleware for logging'
+      'Use middleware for logging',
     ],
-    explanation: 'Node.js with Express allows you to build powerful backend APIs. Learn the fundamentals of server-side JavaScript.',
+    explanation:
+      'Node.js with Express allows you to build powerful backend APIs. Learn the fundamentals of server-side JavaScript.',
     codeSnippet: 'const express = require("express"); const app = express();',
-    tryItCode: 'Set up a basic Express server!',
+    tryItCode: 'Set up a basic Express server.',
     isPremium: false,
-    challenges: ['Create a CRUD API for tasks.', 'Add authentication middleware.', 'Build an API for blog posts.']
+    challenges: [
+      'Create a CRUD API for tasks.',
+      'Add authentication middleware.',
+      'Build an API for blog posts.',
+    ],
   },
   {
     id: 'python-loops',
@@ -149,13 +185,18 @@ export const lessonsData: Lesson[] = [
       'Use for and while loops',
       'Understand if/else statements',
       'Control loop execution',
-      'Solve problems with loops'
+      'Solve problems with loops',
     ],
-    explanation: 'Loops and conditionals are essential for controlling program flow in Python. Learn how to iterate and make decisions in your code.',
+    explanation:
+      'Loops and conditionals are essential for controlling program flow in Python. Learn how to iterate and make decisions in your code.',
     codeSnippet: 'for i in range(5): print(i)',
-    tryItCode: 'Write a loop to print numbers 1-10!',
+    tryItCode: 'Write a loop to print numbers 1-10.',
     isPremium: false,
-    challenges: ['Print a multiplication table.', 'Find prime numbers up to 100.', 'Create a pattern with nested loops.']
+    challenges: [
+      'Print a multiplication table.',
+      'Find prime numbers up to 100.',
+      'Create a pattern with nested loops.',
+    ],
   },
   {
     id: 'css-grid',
@@ -167,13 +208,18 @@ export const lessonsData: Lesson[] = [
       'Create grid layouts',
       'Use grid-template-areas',
       'Handle responsive design',
-      'Build complex layouts'
+      'Build complex layouts',
     ],
-    explanation: 'CSS Grid is a powerful layout system for the web. Learn how to create flexible, responsive designs with ease.',
+    explanation:
+      'CSS Grid is a powerful layout system for the web. Learn how to create flexible, responsive designs with ease.',
     codeSnippet: 'display: grid; grid-template-columns: 1fr 2fr;',
-    tryItCode: 'Create a grid layout for a dashboard!',
+    tryItCode: 'Create a grid layout for a dashboard.',
     isPremium: false,
-    challenges: ['Build a photo gallery grid.', 'Create a card layout for articles.', 'Make a responsive product grid.']
+    challenges: [
+      'Build a photo gallery grid.',
+      'Create a card layout for articles.',
+      'Make a responsive product grid.',
+    ],
   },
   {
     id: 'react-advanced',
@@ -185,13 +231,19 @@ export const lessonsData: Lesson[] = [
       'Use useEffect for side effects',
       'Implement useContext for state sharing',
       'Create custom hooks',
-      'Optimize performance'
+      'Optimize performance',
     ],
-    explanation: 'Take your React skills to the next level with advanced hooks and patterns. Learn to manage complex state and side effects.',
-    codeSnippet: 'const [data, setData] = useState(null); useEffect(() => { /* fetch data */ }, []);',
-    tryItCode: 'Create a custom hook for API data fetching!',
+    explanation:
+      'Take your React skills to the next level with advanced hooks and patterns. Learn to manage complex state and side effects.',
+    codeSnippet:
+      'const [data, setData] = useState(null); useEffect(() => { /* fetch data */ }, []);',
+    tryItCode: 'Create a custom hook for API data fetching.',
     isPremium: true,
-    challenges: ['Build a theme switcher.', 'Create a data fetching hook.', 'Implement a shopping cart with context.']
+    challenges: [
+      'Build a theme switcher.',
+      'Create a data fetching hook.',
+      'Implement a shopping cart with context.',
+    ],
   },
   {
     id: 'node-mongodb',
@@ -203,13 +255,18 @@ export const lessonsData: Lesson[] = [
       'Connect to MongoDB',
       'Perform CRUD operations',
       'Use Mongoose for schema modeling',
-      'Handle database errors'
+      'Handle database errors',
     ],
-    explanation: 'Integrate databases into your Node.js applications. Learn how to work with MongoDB and Mongoose for data persistence.',
+    explanation:
+      'Integrate databases into your Node.js applications. Learn how to work with MongoDB and Mongoose for data persistence.',
     codeSnippet: 'mongoose.connect("mongodb://localhost/myapp");',
-    tryItCode: 'Set up a MongoDB connection and basic CRUD!',
+    tryItCode: 'Set up a MongoDB connection and basic CRUD.',
     isPremium: true,
-    challenges: ['Build a full CRUD API with MongoDB.', 'Add user authentication.', 'Implement data validation.']
+    challenges: [
+      'Build a full CRUD API with MongoDB.',
+      'Add user authentication.',
+      'Implement data validation.',
+    ],
   },
   {
     id: 'python-classes',
@@ -221,13 +278,18 @@ export const lessonsData: Lesson[] = [
       'Define classes and objects',
       'Use inheritance and polymorphism',
       'Implement encapsulation',
-      'Create real-world examples'
+      'Create real-world examples',
     ],
-    explanation: 'OOP allows you to model real-world entities in code. Learn how to create classes, inheritance, and polymorphism in Python.',
+    explanation:
+      'OOP allows you to model real-world entities in code. Learn how to create classes, inheritance, and polymorphism in Python.',
     codeSnippet: 'class Person: def __init__(self, name): self.name = name',
-    tryItCode: 'Create a class for a bank account!',
+    tryItCode: 'Create a class for a bank account.',
     isPremium: false,
-    challenges: ['Build a car class with inheritance.', 'Create an employee management system.', 'Implement a simple game with classes.']
+    challenges: [
+      'Build a car class with inheritance.',
+      'Create an employee management system.',
+      'Implement a simple game with classes.',
+    ],
   },
   {
     id: 'html-forms',
@@ -239,13 +301,18 @@ export const lessonsData: Lesson[] = [
       'Create form elements',
       'Use input types and attributes',
       'Handle form submission',
-      'Validate user input'
+      'Validate user input',
     ],
-    explanation: 'Forms are how users interact with your web applications. Learn to create forms that collect and validate data.',
+    explanation:
+      'Forms are how users interact with your web applications. Learn to create forms that collect and validate data.',
     codeSnippet: '<input type="text" name="username"> <button>Submit</button>',
-    tryItCode: 'Create a form for user registration!',
+    tryItCode: 'Create a form for user registration.',
     isPremium: false,
-    challenges: ['Build a contact form.', 'Create a survey form.', 'Add form validation with JavaScript.']
+    challenges: [
+      'Build a contact form.',
+      'Create a survey form.',
+      'Add form validation with JavaScript.',
+    ],
   },
   {
     id: 'css-animations',
@@ -257,13 +324,18 @@ export const lessonsData: Lesson[] = [
       'Use transition and transform',
       'Create keyframes animations',
       'Animate elements on hover',
-      'Build engaging interactions'
+      'Build engaging interactions',
     ],
-    explanation: 'Animations make your websites more engaging. Learn how to add smooth transitions and eye-catching effects with CSS.',
+    explanation:
+      'Animations make your websites more engaging. Learn how to add smooth transitions and eye-catching effects with CSS.',
     codeSnippet: 'transition: all 0.3s ease;',
-    tryItCode: 'Animate a button on hover!',
+    tryItCode: 'Animate a button on hover.',
     isPremium: false,
-    challenges: ['Create a loading spinner animation.', 'Build a slide-in effect for cards.', 'Animate a progress bar.']
+    challenges: [
+      'Create a loading spinner animation.',
+      'Build a slide-in effect for cards.',
+      'Animate a progress bar.',
+    ],
   },
   {
     id: 'js-dom',
@@ -275,13 +347,18 @@ export const lessonsData: Lesson[] = [
       'Select and modify DOM elements',
       'Handle events',
       'Create and remove elements',
-      'Build interactive web pages'
+      'Build interactive web pages',
     ],
-    explanation: 'The DOM is how JavaScript interacts with HTML. Learn how to select, modify, and create dynamic web content.',
+    explanation:
+      'The DOM is how JavaScript interacts with HTML. Learn how to select, modify, and create dynamic web content.',
     codeSnippet: 'document.querySelector("h1").textContent = "Hello";',
-    tryItCode: 'Create an interactive to-do list!',
+    tryItCode: 'Create an interactive to-do list.',
     isPremium: false,
-    challenges: ['Build a simple calculator.', 'Create a color picker tool.', 'Make a dynamic image gallery.']
+    challenges: [
+      'Build a simple calculator.',
+      'Create a color picker tool.',
+      'Make a dynamic image gallery.',
+    ],
   },
   {
     id: 'react-router',
@@ -293,13 +370,18 @@ export const lessonsData: Lesson[] = [
       'Set up React Router',
       'Create routes and components',
       'Use Link and NavLink',
-      'Handle route parameters'
+      'Handle route parameters',
     ],
-    explanation: 'React Router enables navigation in React apps. Learn how to create multi-page experiences in a single-page application.',
+    explanation:
+      'React Router enables navigation in React apps. Learn how to create multi-page experiences in a single-page application.',
     codeSnippet: '<Route path="/about" component={About} />',
-    tryItCode: 'Set up basic routing for a blog!',
+    tryItCode: 'Set up basic routing for a blog.',
     isPremium: true,
-    challenges: ['Build a multi-page portfolio site.', 'Create a protected route for admin.', 'Add nested routes for categories.']
+    challenges: [
+      'Build a multi-page portfolio site.',
+      'Create a protected route for admin.',
+      'Add nested routes for categories.',
+    ],
   },
   {
     id: 'python-flask',
@@ -311,13 +393,18 @@ export const lessonsData: Lesson[] = [
       'Set up a Flask application',
       'Create routes and templates',
       'Handle forms and requests',
-      'Use Jinja2 templating'
+      'Use Jinja2 templating',
     ],
-    explanation: 'Flask is a lightweight web framework for Python. Learn how to build dynamic web applications with routes, templates, and form handling.',
+    explanation:
+      'Flask is a lightweight web framework for Python. Learn how to build dynamic web applications with routes, templates, and form handling.',
     codeSnippet: 'from flask import Flask; app = Flask(__name__)',
-    tryItCode: 'Create a Flask app with multiple routes!',
+    tryItCode: 'Create a Flask app with multiple routes.',
     isPremium: true,
-    challenges: ['Build a blog with Flask.', 'Create a REST API with Flask.', 'Add user authentication.']
+    challenges: [
+      'Build a blog with Flask.',
+      'Create a REST API with Flask.',
+      'Add user authentication.',
+    ],
   },
   {
     id: 'js-async',
@@ -329,13 +416,18 @@ export const lessonsData: Lesson[] = [
       'Use async/await syntax',
       'Handle promises',
       'Make API calls',
-      'Manage asynchronous operations'
+      'Manage asynchronous operations',
     ],
-    explanation: 'Asynchronous programming is crucial for modern web apps. Learn how to handle API calls and other async operations effectively.',
+    explanation:
+      'Asynchronous programming is crucial for modern web apps. Learn how to handle API calls and other async operations effectively.',
     codeSnippet: 'async function fetchData() { const response = await fetch(url); }',
-    tryItCode: 'Fetch data from an API and display it!',
+    tryItCode: 'Fetch data from an API and display it.',
     isPremium: true,
-    challenges: ['Create a weather app with API calls.', 'Build a search feature with debouncing.', 'Implement infinite scrolling.']
+    challenges: [
+      'Create a weather app with API calls.',
+      'Build a search feature with debouncing.',
+      'Implement infinite scrolling.',
+    ],
   },
   {
     id: 'css-flexbox',
@@ -347,13 +439,18 @@ export const lessonsData: Lesson[] = [
       'Use flexbox properties',
       'Create responsive layouts',
       'Align and distribute items',
-      'Build modern web designs'
+      'Build modern web designs',
     ],
-    explanation: 'Flexbox makes layout easy and responsive. Learn how to create flexible, aligned layouts for your web projects.',
+    explanation:
+      'Flexbox makes layout easy and responsive. Learn how to create flexible, aligned layouts for your web projects.',
     codeSnippet: 'display: flex; justify-content: space-between;',
-    tryItCode: 'Create a flexbox layout for a navbar!',
+    tryItCode: 'Create a flexbox layout for a navbar.',
     isPremium: false,
-    challenges: ['Build a responsive card grid.', 'Create a mobile-first layout.', 'Design a pricing table.']
+    challenges: [
+      'Build a responsive card grid.',
+      'Create a mobile-first layout.',
+      'Design a pricing table.',
+    ],
   },
   {
     id: 'react-testing',
@@ -365,12 +462,13 @@ export const lessonsData: Lesson[] = [
       'Write unit tests with Jest',
       'Test React components',
       'Use React Testing Library',
-      'Mock dependencies'
+      'Mock dependencies',
     ],
-    explanation: 'Testing ensures your React apps are reliable. Learn how to write comprehensive tests for your components and functions.',
+    explanation:
+      'Testing ensures your React apps are reliable. Learn how to write comprehensive tests for your components and functions.',
     codeSnippet: 'test("renders correctly", () => { render(<App />); });',
-    tryItCode: 'Write tests for a simple component!',
+    tryItCode: 'Write tests for a simple component.',
     isPremium: true,
-    challenges: ['Test a form component.', 'Mock API calls in tests.', 'Write integration tests.']
-  }
+    challenges: ['Test a form component.', 'Mock API calls in tests.', 'Write integration tests.'],
+  },
 ];

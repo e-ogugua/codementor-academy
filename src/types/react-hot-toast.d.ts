@@ -1,8 +1,14 @@
 declare module 'react-hot-toast' {
-  import { ReactNode } from 'react';
+  import type { ReactNode } from 'react';
 
   type ToastType = 'success' | 'error' | 'loading' | 'blank' | 'custom';
-  type ToastPosition = 'top-left' | 'top-center' | 'top-right' | 'bottom-left' | 'bottom-center' | 'bottom-right';
+  type ToastPosition =
+    | 'top-left'
+    | 'top-center'
+    | 'top-right'
+    | 'bottom-left'
+    | 'bottom-center'
+    | 'bottom-right';
 
   interface ToastOptions {
     duration?: number;

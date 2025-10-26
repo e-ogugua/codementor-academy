@@ -1,6 +1,6 @@
-import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Upload, Download, FileText, Database, AlertCircle, CheckCircle } from 'lucide-react';
+import { AlertCircle, CheckCircle, Database, Download, FileText, Upload } from 'lucide-react';
+import { useState } from 'react';
 import { AdminAPI } from '../api/admin';
 
 interface AdminPanelProps {
@@ -9,7 +9,9 @@ interface AdminPanelProps {
 }
 
 export function AdminPanel({ isVisible, onClose }: AdminPanelProps) {
-  const [importResults, setImportResults] = useState<{ success: number; errors: string[] } | null>(null);
+  const [importResults, setImportResults] = useState<{ success: number; errors: string[] } | null>(
+    null
+  );
   const [isLoading, setIsLoading] = useState(false);
   const [activeTab, setActiveTab] = useState<'import' | 'export' | 'stats'>('import');
 
@@ -25,7 +27,7 @@ export function AdminPanel({ isVisible, onClose }: AdminPanelProps) {
       let results;
 
       if (file.name.endsWith('.json')) {
-        const jsonData = JSON.parse(text);
+        const jsonData = JSON.parse(text) as Record<string, unknown>[];
         results = await AdminAPI.importFromJSON(Array.isArray(jsonData) ? jsonData : [jsonData]);
       } else if (file.name.endsWith('.csv')) {
         results = await AdminAPI.importFromCSV(text);
@@ -37,7 +39,7 @@ export function AdminPanel({ isVisible, onClose }: AdminPanelProps) {
     } catch (error) {
       setImportResults({
         success: 0,
-        errors: [`File processing error: ${error}`]
+        errors: [`File processing error: ${String(error)}`],
       });
     } finally {
       setIsLoading(false);
@@ -81,33 +83,30 @@ export function AdminPanel({ isVisible, onClose }: AdminPanelProps) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+      className='fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4'
       onClick={onClose}
     >
       <motion.div
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.9, opacity: 0 }}
-        className="bg-gray-900 border border-purple-500/20 rounded-2xl p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto"
-        onClick={(e) => e.stopPropagation()}
+        className='bg-gray-900 border border-purple-500/20 rounded-2xl p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto'
+        onClick={e => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-bold text-white flex items-center gap-2">
-            <Database className="w-6 h-6 text-purple-400" />
+        <div className='flex items-center justify-between mb-6'>
+          <h2 className='text-2xl font-bold text-white flex items-center gap-2'>
+            <Database className='w-6 h-6 text-purple-400' />
             Admin Panel
           </h2>
-          <button
-            onClick={onClose}
-            className="text-gray-400 hover:text-white transition-colors"
-          >
+          <button onClick={onClose} className='text-gray-400 hover:text-white transition-colors'>
             ✕
           </button>
         </div>
 
         {/* Tabs */}
-        <div className="flex gap-4 mb-6 border-b border-gray-700">
-          {(['import', 'export', 'stats'] as const).map((tab) => (
+        <div className='flex gap-4 mb-6 border-b border-gray-700'>
+          {(['import', 'export', 'stats'] as const).map(tab => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
@@ -124,49 +123,52 @@ export function AdminPanel({ isVisible, onClose }: AdminPanelProps) {
 
         {/* Import Tab */}
         {activeTab === 'import' && (
-          <div className="space-y-6">
+          <div className='space-y-6'>
             <div>
-              <h3 className="text-lg font-semibold text-white mb-3">Import Topics</h3>
-              <p className="text-gray-400 mb-4">
-                Upload JSON or CSV files to import topic data. Existing topics with matching slugs will be updated.
+              <h3 className='text-lg font-semibold text-white mb-3'>Import Topics</h3>
+              <p className='text-gray-400 mb-4'>
+                Upload JSON or CSV files to import topic data. Existing topics with matching slugs
+                will be updated.
               </p>
-              
-              <div className="border-2 border-dashed border-gray-600 rounded-lg p-8 text-center">
-                <Upload className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-                <label className="cursor-pointer">
+
+              <div className='border-2 border-dashed border-gray-600 rounded-lg p-8 text-center'>
+                <Upload className='w-12 h-12 text-gray-400 mx-auto mb-4' />
+                <label className='cursor-pointer'>
                   <input
-                    type="file"
-                    accept=".json,.csv"
+                    type='file'
+                    accept='.json,.csv'
                     onChange={handleFileUpload}
-                    className="hidden"
+                    className='hidden'
                     disabled={isLoading}
                   />
-                  <span className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg transition-colors">
+                  <span className='bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg transition-colors'>
                     {isLoading ? 'Processing...' : 'Choose File'}
                   </span>
                 </label>
-                <p className="text-gray-500 mt-2">JSON or CSV files only</p>
+                <p className='text-gray-500 mt-2'>JSON or CSV files only</p>
               </div>
             </div>
 
             {/* Import Results */}
             {importResults && (
-              <div className="bg-gray-800 rounded-lg p-4">
-                <div className="flex items-center gap-2 mb-3">
+              <div className='bg-gray-800 rounded-lg p-4'>
+                <div className='flex items-center gap-2 mb-3'>
                   {importResults.success > 0 ? (
-                    <CheckCircle className="w-5 h-5 text-green-400" />
+                    <CheckCircle className='w-5 h-5 text-green-400' />
                   ) : (
-                    <AlertCircle className="w-5 h-5 text-red-400" />
+                    <AlertCircle className='w-5 h-5 text-red-400' />
                   )}
-                  <h4 className="font-semibold text-white">Import Results</h4>
+                  <h4 className='font-semibold text-white'>Import Results</h4>
                 </div>
-                
-                <div className="space-y-2">
-                  <p className="text-green-400">✓ {importResults.success} topics imported successfully</p>
+
+                <div className='space-y-2'>
+                  <p className='text-green-400'>
+                    ✓ {importResults.success} topics imported successfully
+                  </p>
                   {importResults.errors.length > 0 && (
                     <div>
-                      <p className="text-red-400 mb-2">✗ {importResults.errors.length} errors:</p>
-                      <ul className="text-red-300 text-sm space-y-1 ml-4">
+                      <p className='text-red-400 mb-2'>✗ {importResults.errors.length} errors:</p>
+                      <ul className='text-red-300 text-sm space-y-1 ml-4'>
                         {importResults.errors.map((error, index) => (
                           <li key={index}>• {error}</li>
                         ))}
@@ -178,16 +180,16 @@ export function AdminPanel({ isVisible, onClose }: AdminPanelProps) {
             )}
 
             {/* CSV Format Guide */}
-            <div className="bg-gray-800 rounded-lg p-4">
-              <h4 className="font-semibold text-white mb-2">CSV Format Guide</h4>
-              <p className="text-gray-400 text-sm mb-2">Required columns:</p>
-              <code className="text-xs text-green-400 block bg-gray-900 p-2 rounded">
+            <div className='bg-gray-800 rounded-lg p-4'>
+              <h4 className='font-semibold text-white mb-2'>CSV Format Guide</h4>
+              <p className='text-gray-400 text-sm mb-2'>Required columns:</p>
+              <code className='text-xs text-green-400 block bg-gray-900 p-2 rounded'>
                 id,title,slug,description,tags,difficulty,duration_estimate,author,is_featured,learning_outcomes,prerequisites,related_portfolio_slugs
               </code>
-              <p className="text-gray-400 text-xs mt-2">
-                • Use semicolons (;) to separate multiple values in array fields (tags, learning_outcomes, etc.)
-                • difficulty must be: Beginner, Intermediate, or Advanced
-                • duration_estimate should be in minutes
+              <p className='text-gray-400 text-xs mt-2'>
+                • Use semicolons (;) to separate multiple values in array fields (tags,
+                learning_outcomes, etc.) • difficulty must be: Beginner, Intermediate, or Advanced •
+                duration_estimate should be in minutes
               </p>
             </div>
           </div>
@@ -195,33 +197,33 @@ export function AdminPanel({ isVisible, onClose }: AdminPanelProps) {
 
         {/* Export Tab */}
         {activeTab === 'export' && (
-          <div className="space-y-6">
+          <div className='space-y-6'>
             <div>
-              <h3 className="text-lg font-semibold text-white mb-3">Export Topics</h3>
-              <p className="text-gray-400 mb-6">
+              <h3 className='text-lg font-semibold text-white mb-3'>Export Topics</h3>
+              <p className='text-gray-400 mb-6'>
                 Download all topic data in JSON or CSV format for backup or external processing.
               </p>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+              <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                 <button
                   onClick={() => handleExport('json')}
-                  className="bg-blue-600 hover:bg-blue-700 text-white p-4 rounded-lg transition-colors flex items-center gap-3"
+                  className='bg-blue-600 hover:bg-blue-700 text-white p-4 rounded-lg transition-colors flex items-center gap-3'
                 >
-                  <FileText className="w-6 h-6" />
-                  <div className="text-left">
-                    <div className="font-semibold">Export as JSON</div>
-                    <div className="text-sm opacity-80">Structured data format</div>
+                  <FileText className='w-6 h-6' />
+                  <div className='text-left'>
+                    <div className='font-semibold'>Export as JSON</div>
+                    <div className='text-sm opacity-80'>Structured data format</div>
                   </div>
                 </button>
-                
+
                 <button
                   onClick={() => handleExport('csv')}
-                  className="bg-green-600 hover:bg-green-700 text-white p-4 rounded-lg transition-colors flex items-center gap-3"
+                  className='bg-green-600 hover:bg-green-700 text-white p-4 rounded-lg transition-colors flex items-center gap-3'
                 >
-                  <Download className="w-6 h-6" />
-                  <div className="text-left">
-                    <div className="font-semibold">Export as CSV</div>
-                    <div className="text-sm opacity-80">Spreadsheet compatible</div>
+                  <Download className='w-6 h-6' />
+                  <div className='text-left'>
+                    <div className='font-semibold'>Export as CSV</div>
+                    <div className='text-sm opacity-80'>Spreadsheet compatible</div>
                   </div>
                 </button>
               </div>
@@ -231,54 +233,58 @@ export function AdminPanel({ isVisible, onClose }: AdminPanelProps) {
 
         {/* Stats Tab */}
         {activeTab === 'stats' && (
-          <div className="space-y-6">
+          <div className='space-y-6'>
             <div>
-              <h3 className="text-lg font-semibold text-white mb-3">Topic Statistics</h3>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                <div className="bg-gray-800 rounded-lg p-4 text-center">
-                  <div className="text-2xl font-bold text-purple-400">{stats.total}</div>
-                  <div className="text-gray-400">Total Topics</div>
+              <h3 className='text-lg font-semibold text-white mb-3'>Topic Statistics</h3>
+
+              <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6'>
+                <div className='bg-gray-800 rounded-lg p-4 text-center'>
+                  <div className='text-2xl font-bold text-purple-400'>{stats.total}</div>
+                  <div className='text-gray-400'>Total Topics</div>
                 </div>
-                
-                <div className="bg-gray-800 rounded-lg p-4 text-center">
-                  <div className="text-2xl font-bold text-green-400">{stats.featured}</div>
-                  <div className="text-gray-400">Featured</div>
+
+                <div className='bg-gray-800 rounded-lg p-4 text-center'>
+                  <div className='text-2xl font-bold text-green-400'>{stats.featured}</div>
+                  <div className='text-gray-400'>Featured</div>
                 </div>
-                
-                <div className="bg-gray-800 rounded-lg p-4 text-center">
-                  <div className="text-2xl font-bold text-blue-400">{Math.round(stats.totalDuration / 60)}h</div>
-                  <div className="text-gray-400">Total Duration</div>
+
+                <div className='bg-gray-800 rounded-lg p-4 text-center'>
+                  <div className='text-2xl font-bold text-blue-400'>
+                    {Math.round(stats.totalDuration / 60)}h
+                  </div>
+                  <div className='text-gray-400'>Total Duration</div>
                 </div>
-                
-                <div className="bg-gray-800 rounded-lg p-4 text-center">
-                  <div className="text-2xl font-bold text-yellow-400">{stats.uniqueTags.length}</div>
-                  <div className="text-gray-400">Unique Tags</div>
+
+                <div className='bg-gray-800 rounded-lg p-4 text-center'>
+                  <div className='text-2xl font-bold text-yellow-400'>
+                    {stats.uniqueTags.length}
+                  </div>
+                  <div className='text-gray-400'>Unique Tags</div>
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
                 {/* Difficulty Distribution */}
-                <div className="bg-gray-800 rounded-lg p-4">
-                  <h4 className="font-semibold text-white mb-3">By Difficulty</h4>
-                  <div className="space-y-2">
+                <div className='bg-gray-800 rounded-lg p-4'>
+                  <h4 className='font-semibold text-white mb-3'>By Difficulty</h4>
+                  <div className='space-y-2'>
                     {Object.entries(stats.byDifficulty).map(([difficulty, count]) => (
-                      <div key={difficulty} className="flex justify-between items-center">
-                        <span className="text-gray-300">{difficulty}</span>
-                        <span className="text-white font-semibold">{count}</span>
+                      <div key={difficulty} className='flex justify-between items-center'>
+                        <span className='text-gray-300'>{difficulty}</span>
+                        <span className='text-white font-semibold'>{count}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
                 {/* Popular Tags */}
-                <div className="bg-gray-800 rounded-lg p-4">
-                  <h4 className="font-semibold text-white mb-3">All Tags</h4>
-                  <div className="flex flex-wrap gap-2 max-h-32 overflow-y-auto">
-                    {stats.uniqueTags.map((tag) => (
+                <div className='bg-gray-800 rounded-lg p-4'>
+                  <h4 className='font-semibold text-white mb-3'>All Tags</h4>
+                  <div className='flex flex-wrap gap-2 max-h-32 overflow-y-auto'>
+                    {stats.uniqueTags.map(tag => (
                       <span
                         key={tag}
-                        className="px-2 py-1 bg-purple-600/20 text-purple-300 rounded text-sm"
+                        className='px-2 py-1 bg-purple-600/20 text-purple-300 rounded text-sm'
                       >
                         {tag}
                       </span>

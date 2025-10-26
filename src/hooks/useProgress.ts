@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { lessonsData } from '../data/lessonsData';
 import { badgesData } from '../data/badgesData';
 
@@ -34,19 +34,40 @@ export function useProgress() {
       if (!earnedBadges.includes(badge.id)) {
         if (badge.condition === 'Complete your first lesson.' && completed.length >= 1) {
           newBadges.push(badge.id);
-        } else if (badge.condition.includes('Complete the HTML Basics lesson.') && completed.includes('html-basics')) {
+        } else if (
+          badge.condition.includes('Complete the HTML Basics lesson.') &&
+          completed.includes('html-basics')
+        ) {
           newBadges.push(badge.id);
-        } else if (badge.condition.includes('Complete the CSS Styling lesson.') && completed.includes('css-styling')) {
+        } else if (
+          badge.condition.includes('Complete the CSS Styling lesson.') &&
+          completed.includes('css-styling')
+        ) {
           newBadges.push(badge.id);
-        } else if (badge.condition.includes('Complete the JavaScript Variables lesson.') && completed.includes('js-variables')) {
+        } else if (
+          badge.condition.includes('Complete the JavaScript Variables lesson.') &&
+          completed.includes('js-variables')
+        ) {
           newBadges.push(badge.id);
-        } else if (badge.condition.includes('Complete the React Components lesson.') && completed.includes('react-components')) {
+        } else if (
+          badge.condition.includes('Complete the React Components lesson.') &&
+          completed.includes('react-components')
+        ) {
           newBadges.push(badge.id);
-        } else if (badge.condition.includes('Complete the Node.js Basics lesson.') && completed.includes('nodejs-server')) {
+        } else if (
+          badge.condition.includes('Complete the Node.js Basics lesson.') &&
+          completed.includes('nodejs-server')
+        ) {
           newBadges.push(badge.id);
-        } else if (badge.condition.includes('Complete the Python Loops lesson.') && completed.includes('python-loops')) {
+        } else if (
+          badge.condition.includes('Complete the Python Loops lesson.') &&
+          completed.includes('python-loops')
+        ) {
           newBadges.push(badge.id);
-        } else if (badge.condition.includes('Complete 5 lessons overall.') && completed.length >= 5) {
+        } else if (
+          badge.condition.includes('Complete 5 lessons overall.') &&
+          completed.length >= 5
+        ) {
           newBadges.push(badge.id);
         }
       }
@@ -73,6 +94,6 @@ export function useProgress() {
     resetProgress,
     totalLessons: lessonsData.length,
     completedCount: completedLessons.length,
-    badgeCount: earnedBadges.length
+    badgeCount: earnedBadges.length,
   };
 }

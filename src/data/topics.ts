@@ -23,7 +23,8 @@ export const topics: Topic[] = [
     id: '1',
     title: 'PC Repair & Troubleshooting',
     slug: 'pc-repair',
-    description: 'Quick practical fixes for Windows hardware & software. Learn systematic troubleshooting, common failure patterns, and hands-on repair techniques.',
+    description:
+      'Quick practical fixes for Windows hardware & software. Learn systematic troubleshooting, common failure patterns, and hands-on repair techniques.',
     tags: ['hardware', 'repair'],
     difficulty: 'Beginner',
     duration_estimate: 120,
@@ -36,16 +37,17 @@ export const topics: Topic[] = [
       'Diagnose common hardware failures',
       'Troubleshoot Windows boot issues',
       'Replace components safely',
-      'Use diagnostic tools effectively'
+      'Use diagnostic tools effectively',
     ],
     created_at: '2025-09-01T00:00:00Z',
-    updated_at: '2025-09-01T00:00:00Z'
+    updated_at: '2025-09-01T00:00:00Z',
   },
   {
     id: '2',
     title: 'Intro to Linux & CLI',
     slug: 'linux-cli',
-    description: 'Shell essentials and system maintenance. Master command-line navigation, file operations, and basic system administration.',
+    description:
+      'Shell essentials and system maintenance. Master command-line navigation, file operations, and basic system administration.',
     tags: ['linux', 'sysadmin'],
     difficulty: 'Beginner',
     duration_estimate: 180,
@@ -57,16 +59,17 @@ export const topics: Topic[] = [
       'Navigate filesystem with confidence',
       'Manage files and permissions',
       'Use pipes and redirection',
-      'Basic system monitoring'
+      'Basic system monitoring',
     ],
     created_at: '2025-09-01T00:00:00Z',
-    updated_at: '2025-09-01T00:00:00Z'
+    updated_at: '2025-09-01T00:00:00Z',
   },
   {
     id: '3',
     title: 'Frontend Fundamentals (HTML/CSS)',
     slug: 'frontend-basics',
-    description: 'Crisp, accessible UI foundations. Build semantic HTML and responsive CSS with modern best practices.',
+    description:
+      'Crisp, accessible UI foundations. Build semantic HTML and responsive CSS with modern best practices.',
     tags: ['frontend', 'html', 'css'],
     difficulty: 'Beginner',
     duration_estimate: 240,
@@ -80,18 +83,19 @@ export const topics: Topic[] = [
       'Design responsive layouts',
       'Implement animations',
       'Optimize for performance',
-      'Cross-browser compatibility'
+      'Cross-browser compatibility',
     ],
     price: '$45',
     originalPrice: '$69',
     created_at: '2024-01-18T10:00:00Z',
-    updated_at: '2024-01-18T10:00:00Z'
+    updated_at: '2024-01-18T10:00:00Z',
   },
   {
     id: '4',
     title: 'JavaScript for Builders',
     slug: 'js-for-builders',
-    description: 'Core JS patterns for real apps. Focus on practical patterns, DOM manipulation, and building interactive interfaces.',
+    description:
+      'Core JS patterns for real apps. Focus on practical patterns, DOM manipulation, and building interactive interfaces.',
     tags: ['javascript', 'frontend'],
     difficulty: 'Intermediate',
     duration_estimate: 300,
@@ -100,17 +104,23 @@ export const topics: Topic[] = [
     cover_image: '/images/topics/javascript.jpg',
     is_featured: true,
     prerequisites: ['frontend-basics'],
-    learning_outcomes: ['Diagnose hardware failures', 'Install drivers and software', 'Optimize system performance', 'Backup and recovery strategies'],
+    learning_outcomes: [
+      'Diagnose hardware failures',
+      'Install drivers and software',
+      'Optimize system performance',
+      'Backup and recovery strategies',
+    ],
     price: '$29',
     originalPrice: '$49',
     created_at: '2024-01-15T10:00:00Z',
-    updated_at: '2024-01-15T10:00:00Z'
+    updated_at: '2024-01-15T10:00:00Z',
   },
   {
     id: '5',
     title: 'Python for Backend',
     slug: 'python-backend',
-    description: 'Build API services and utils. Create robust backend services with FastAPI, database integration, and deployment.',
+    description:
+      'Build API services and utils. Create robust backend services with FastAPI, database integration, and deployment.',
     tags: ['python', 'backend'],
     difficulty: 'Intermediate',
     duration_estimate: 360,
@@ -125,18 +135,19 @@ export const topics: Topic[] = [
       'System design principles',
       'Scalability patterns',
       'Performance optimization',
-      'Architecture decisions'
+      'Architecture decisions',
     ],
     price: '$99',
     originalPrice: '$149',
     created_at: '2024-01-26T10:00:00Z',
-    updated_at: '2024-01-26T10:00:00Z'
+    updated_at: '2024-01-26T10:00:00Z',
   },
   {
     id: '6',
     title: 'Databases: Oracle & SQL',
     slug: 'oracle-sql',
-    description: 'Practical database admin & queries. Master SQL fundamentals, Oracle-specific features, and performance optimization.',
+    description:
+      'Practical database admin & queries. Master SQL fundamentals, Oracle-specific features, and performance optimization.',
     tags: ['database', 'oracle', 'sql'],
     difficulty: 'Intermediate',
     duration_estimate: 420,
@@ -151,18 +162,19 @@ export const topics: Topic[] = [
       'Game development basics',
       'Unity fundamentals',
       'Game mechanics',
-      'Publishing games'
+      'Publishing games',
     ],
     price: '$49',
     originalPrice: '$69',
     created_at: '2024-01-25T10:00:00Z',
-    updated_at: '2024-01-25T10:00:00Z'
+    updated_at: '2024-01-25T10:00:00Z',
   },
   {
     id: '7',
     title: 'APIs & Microservices',
     slug: 'apis-microservices',
-    description: 'Design and test reliable APIs. Build scalable microservices with proper error handling, testing, and documentation.',
+    description:
+      'Design and test reliable APIs. Build scalable microservices with proper error handling, testing, and documentation.',
     tags: ['api', 'backend'],
     difficulty: 'Advanced',
     duration_estimate: 480,
@@ -177,18 +189,19 @@ export const topics: Topic[] = [
       'Game development basics',
       'Unity fundamentals',
       'Game mechanics',
-      'Publishing games'
+      'Publishing games',
     ],
     price: '$49',
     originalPrice: '$69',
     created_at: '2024-01-25T10:00:00Z',
-    updated_at: '2024-01-25T10:00:00Z'
+    updated_at: '2024-01-25T10:00:00Z',
   },
   {
     id: '8',
     title: 'DevOps Essentials',
     slug: 'devops-essentials',
-    description: 'CI/CD, deployments and simple infra. Set up automated pipelines, containerization, and cloud deployments.',
+    description:
+      'CI/CD, deployments and simple infra. Set up automated pipelines, containerization, and cloud deployments.',
     tags: ['devops', 'infra'],
     difficulty: 'Advanced',
     duration_estimate: 360,
@@ -205,18 +218,19 @@ export const topics: Topic[] = [
       'Set up React development environment',
       'Create functional components',
       'Manage component state',
-      'Handle user interactions'
+      'Handle user interactions',
     ],
     price: '$39',
     originalPrice: '$59',
     created_at: '2024-01-16T10:00:00Z',
-    updated_at: '2024-01-16T10:00:00Z'
+    updated_at: '2024-01-16T10:00:00Z',
   },
   {
     id: '9',
     title: 'Security Basics for Small Teams',
     slug: 'security-basics',
-    description: 'Practical checks and checklist approach. Essential security practices for startups and small development teams.',
+    description:
+      'Practical checks and checklist approach. Essential security practices for startups and small development teams.',
     tags: ['security'],
     difficulty: 'Intermediate',
     duration_estimate: 180,
@@ -229,16 +243,17 @@ export const topics: Topic[] = [
       'Implement authentication best practices',
       'Secure API endpoints',
       'Conduct security audits',
-      'Handle sensitive data properly'
+      'Handle sensitive data properly',
     ],
     created_at: '2025-09-01T00:00:00Z',
-    updated_at: '2025-09-01T00:00:00Z'
+    updated_at: '2025-09-01T00:00:00Z',
   },
   {
     id: '10',
     title: 'Building MVPs Fast',
     slug: 'mvp-fast',
-    description: 'Product-first engineering approach. Learn to validate ideas quickly, build lean prototypes, and iterate based on feedback.',
+    description:
+      'Product-first engineering approach. Learn to validate ideas quickly, build lean prototypes, and iterate based on feedback.',
     tags: ['product', 'startup'],
     difficulty: 'Intermediate',
     duration_estimate: 240,
@@ -251,16 +266,17 @@ export const topics: Topic[] = [
       'Validate product ideas quickly',
       'Build lean prototypes',
       'Implement user feedback loops',
-      'Launch and iterate rapidly'
+      'Launch and iterate rapidly',
     ],
     created_at: '2025-09-01T00:00:00Z',
-    updated_at: '2025-09-01T00:00:00Z'
+    updated_at: '2025-09-01T00:00:00Z',
   },
   {
     id: '11',
     title: 'UX for Engineers',
     slug: 'ux-for-engineers',
-    description: 'Practical design rules to make apps usable. Essential UX principles for developers who need to create user-friendly interfaces.',
+    description:
+      'Practical design rules to make apps usable. Essential UX principles for developers who need to create user-friendly interfaces.',
     tags: ['ux', 'design'],
     difficulty: 'Beginner',
     duration_estimate: 150,
@@ -273,16 +289,17 @@ export const topics: Topic[] = [
       'Apply fundamental UX principles',
       'Design intuitive interfaces',
       'Conduct basic user research',
-      'Create effective wireframes'
+      'Create effective wireframes',
     ],
     created_at: '2025-09-01T00:00:00Z',
-    updated_at: '2025-09-01T00:00:00Z'
+    updated_at: '2025-09-01T00:00:00Z',
   },
   {
     id: '12',
     title: 'Farming + Tech Ops',
     slug: 'agro-tech-ops',
-    description: 'Sensors, data and ops for small farms. Apply technology solutions to agricultural operations with IoT sensors and data analysis.',
+    description:
+      'Sensors, data and ops for small farms. Apply technology solutions to agricultural operations with IoT sensors and data analysis.',
     tags: ['agritech', 'ops'],
     difficulty: 'Advanced',
     duration_estimate: 300,
@@ -295,11 +312,11 @@ export const topics: Topic[] = [
       'Deploy IoT sensors for farming',
       'Analyze agricultural data',
       'Automate farm operations',
-      'Optimize crop yields with data'
+      'Optimize crop yields with data',
     ],
     created_at: '2025-09-01T00:00:00Z',
-    updated_at: '2025-09-01T00:00:00Z'
-  }
+    updated_at: '2025-09-01T00:00:00Z',
+  },
 ];
 
 export const getTopicBySlug = (slug: string): Topic | undefined => {

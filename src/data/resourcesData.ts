@@ -1,7 +1,14 @@
 export interface Resource {
   id: string;
   title: string;
-  category: 'Tools' | 'Cheat Sheets' | 'Tutorials' | 'Communities' | 'Career Tips' | 'Developer Tools' | 'Code Challenges';
+  category:
+    | 'Tools'
+    | 'Cheat Sheets'
+    | 'Tutorials'
+    | 'Communities'
+    | 'Career Tips'
+    | 'Developer Tools'
+    | 'Code Challenges';
   description: string;
   url: string;
   type: 'link' | 'embed';
@@ -16,7 +23,7 @@ export const resourcesData: Resource[] = [
     category: 'Tools',
     description: 'Comprehensive documentation for HTML, CSS, and JavaScript.',
     url: 'https://developer.mozilla.org',
-    type: 'link'
+    type: 'link',
   },
   {
     id: 'css-tricks',
@@ -24,7 +31,7 @@ export const resourcesData: Resource[] = [
     category: 'Cheat Sheets',
     description: 'Tips, tricks, and techniques for CSS.',
     url: 'https://css-tricks.com',
-    type: 'link'
+    type: 'link',
   },
   {
     id: 'react-docs',
@@ -32,7 +39,7 @@ export const resourcesData: Resource[] = [
     category: 'Tools',
     description: 'Learn React from the official source.',
     url: 'https://react.dev',
-    type: 'link'
+    type: 'link',
   },
   {
     id: 'nodejs-docs',
@@ -40,7 +47,7 @@ export const resourcesData: Resource[] = [
     category: 'Tools',
     description: 'Guides and API references for Node.js.',
     url: 'https://nodejs.org/en/docs/',
-    type: 'link'
+    type: 'link',
   },
   {
     id: 'python-docs',
@@ -48,7 +55,7 @@ export const resourcesData: Resource[] = [
     category: 'Tools',
     description: 'Tutorials and references for Python.',
     url: 'https://docs.python.org/3/',
-    type: 'link'
+    type: 'link',
   },
   {
     id: 'freecodecamp',
@@ -57,7 +64,7 @@ export const resourcesData: Resource[] = [
     description: 'Free coding tutorials on YouTube.',
     url: 'https://www.youtube.com/c/freecodecamp',
     type: 'embed',
-    embedId: 'PkZNo7MFNFg'
+    embedId: 'PkZNo7MFNFg',
   },
   {
     id: 'github',
@@ -65,7 +72,7 @@ export const resourcesData: Resource[] = [
     category: 'Developer Tools',
     description: 'Host and share your code repositories.',
     url: 'https://github.com',
-    type: 'link'
+    type: 'link',
   },
   {
     id: 'stackoverflow',
@@ -73,7 +80,7 @@ export const resourcesData: Resource[] = [
     category: 'Communities',
     description: 'Q&A community for programmers.',
     url: 'https://stackoverflow.com',
-    type: 'link'
+    type: 'link',
   },
   {
     id: 'tailwind-cheat',
@@ -81,7 +88,7 @@ export const resourcesData: Resource[] = [
     category: 'Cheat Sheets',
     description: 'Quick reference for Tailwind utilities.',
     url: 'https://tailwindcss.com/docs/utility-first',
-    type: 'link'
+    type: 'link',
   },
   {
     id: 'js-cheat',
@@ -89,7 +96,7 @@ export const resourcesData: Resource[] = [
     category: 'Cheat Sheets',
     description: 'Essential JS methods and syntax.',
     url: 'https://javascript.info',
-    type: 'link'
+    type: 'link',
   },
   {
     id: 'leetcode',
@@ -97,7 +104,7 @@ export const resourcesData: Resource[] = [
     category: 'Code Challenges',
     description: 'Practice coding problems and improve your skills.',
     url: 'https://leetcode.com',
-    type: 'link'
+    type: 'link',
   },
   {
     id: 'hackerrank',
@@ -105,7 +112,7 @@ export const resourcesData: Resource[] = [
     category: 'Code Challenges',
     description: 'Coding challenges and interview preparation.',
     url: 'https://www.hackerrank.com',
-    type: 'link'
+    type: 'link',
   },
   {
     id: 'roadmap-sh',
@@ -113,7 +120,7 @@ export const resourcesData: Resource[] = [
     category: 'Career Tips',
     description: 'Developer roadmaps for different tech stacks.',
     url: 'https://roadmap.sh',
-    type: 'link'
+    type: 'link',
   },
   {
     id: 'egghead',
@@ -121,7 +128,7 @@ export const resourcesData: Resource[] = [
     category: 'Tutorials',
     description: 'Bite-sized video lessons on web development.',
     url: 'https://egghead.io',
-    type: 'link'
+    type: 'link',
   },
   {
     id: 'w3schools',
@@ -129,7 +136,7 @@ export const resourcesData: Resource[] = [
     category: 'Tutorials',
     description: 'Interactive tutorials for web technologies.',
     url: 'https://www.w3schools.com',
-    type: 'link'
+    type: 'link',
   },
   {
     id: 'codepen',
@@ -137,7 +144,7 @@ export const resourcesData: Resource[] = [
     category: 'Developer Tools',
     description: 'Online code editor for testing and sharing snippets.',
     url: 'https://codepen.io',
-    type: 'link'
+    type: 'link',
   },
   {
     id: 'jsfiddle',
@@ -145,7 +152,7 @@ export const resourcesData: Resource[] = [
     category: 'Developer Tools',
     description: 'Test and share JavaScript, HTML, and CSS code.',
     url: 'https://jsfiddle.net',
-    type: 'link'
+    type: 'link',
   },
   {
     id: 'dev-to',
@@ -153,7 +160,7 @@ export const resourcesData: Resource[] = [
     category: 'Communities',
     description: 'A community of software developers writing about code.',
     url: 'https://dev.to',
-    type: 'link'
+    type: 'link',
   },
   {
     id: 'reddit-r-learnprogramming',
@@ -161,7 +168,7 @@ export const resourcesData: Resource[] = [
     category: 'Communities',
     description: 'Reddit community for learning programming.',
     url: 'https://www.reddit.com/r/learnprogramming/',
-    type: 'link'
+    type: 'link',
   },
   {
     id: 'codecademy',
@@ -169,7 +176,7 @@ export const resourcesData: Resource[] = [
     category: 'Tutorials',
     description: 'Interactive coding lessons and projects.',
     url: 'https://www.codecademy.com',
-    type: 'link'
+    type: 'link',
   },
   {
     id: 'udemy-web-dev',
@@ -177,7 +184,7 @@ export const resourcesData: Resource[] = [
     category: 'Tutorials',
     description: 'Thousands of courses on web development.',
     url: 'https://www.udemy.com/topic/web-development/',
-    type: 'link'
+    type: 'link',
   },
   {
     id: 'coursera-web-dev',
@@ -185,7 +192,7 @@ export const resourcesData: Resource[] = [
     category: 'Tutorials',
     description: 'University-level courses on web technologies.',
     url: 'https://www.coursera.org/browse/computer-science/software-development',
-    type: 'link'
+    type: 'link',
   },
   {
     id: 'html-cheat-sheet',
@@ -193,7 +200,7 @@ export const resourcesData: Resource[] = [
     category: 'Cheat Sheets',
     description: 'Complete reference for HTML tags and attributes.',
     url: 'https://htmlcheatsheet.com/',
-    type: 'link'
+    type: 'link',
   },
   {
     id: 'css-grid-cheat',
@@ -201,7 +208,7 @@ export const resourcesData: Resource[] = [
     category: 'Cheat Sheets',
     description: 'Visual guide to CSS Grid properties.',
     url: 'https://css-tricks.com/snippets/css/complete-guide-grid/',
-    type: 'link'
+    type: 'link',
   },
   {
     id: 'react-cheat',
@@ -209,7 +216,7 @@ export const resourcesData: Resource[] = [
     category: 'Cheat Sheets',
     description: 'Quick reference for React hooks and components.',
     url: 'https://reactcheatsheet.com/',
-    type: 'link'
+    type: 'link',
   },
   {
     id: 'python-cheat',
@@ -217,7 +224,7 @@ export const resourcesData: Resource[] = [
     category: 'Cheat Sheets',
     description: 'Essential Python syntax and libraries.',
     url: 'https://www.pythoncheatsheet.org/',
-    type: 'link'
+    type: 'link',
   },
   {
     id: 'node-cheat',
@@ -225,6 +232,6 @@ export const resourcesData: Resource[] = [
     category: 'Cheat Sheets',
     description: 'Common Node.js modules and patterns.',
     url: 'https://nodejs.dev/en/learn/',
-    type: 'link'
-  }
+    type: 'link',
+  },
 ];
